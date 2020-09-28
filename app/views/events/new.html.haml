@@ -12,4 +12,13 @@
         
         .field
           = f.label :reward, class: "label"
-            = f.text_field :eventname, autofocus: true, autocomplete: "eventname", placeholder: "踊り祭り", maxlength: "30", class: "input"
+            = f.number_field :reward, autofocus: true, autocomplete: "reward", min: 1000, max: 100000, size: "150x150" class: "input"
+        
+        .field
+           = f.label :genre, class: "label"
+              = f.select :genre, [ ["ダンス",1], ["家電メーカー", 2], ["主婦", 3 ] ,["保育士", 4], ["学生", 5], ["営業", 6] ], prompt: "職業を選択してください", class: "input"
+        
+        .field
+          = f.label :day, class: "label"
+            = f.date_select :day, {discard: true}
+
