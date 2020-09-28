@@ -4,21 +4,24 @@
       %h1.title
         Event Create
     %section.form
-      = form_with(model: @event, local: true, ) do |f|
-
+      = form_with model: @event, local: true do |f|
         .field
-          = f.label :eventname, class: "label"
-            = f.text_field :eventname, autofocus: true, autocomplete: "eventname", placeholder: "踊り祭り", maxlength: "30", class: "input"
+          = f.label :イベント名
+          = f.text_field :eventname, autofocus: true, autocomplete: "eventname", placeholder: "踊り祭り", maxlength: "30", class: "input"
+      
+        .field
+          = f.label :報酬額
+          = f.number_field :reward, autofocus: true, min: 1000, max: 100000, class: "input"
+          円
         
         .field
-          = f.label :reward, class: "label"
-            = f.number_field :reward, autofocus: true, autocomplete: "reward", min: 1000, max: 100000, size: "150x150" class: "input"
+          = f.label :募集カテゴリ
+          = f.select :genre, [ ["ダンス",1], ["歌", 2], ["広告モデル", 3 ] ,["楽器演奏", 4], ["その他", 5] ], prompt: "募集カテゴリを選択してください", class: "input"
         
         .field
-           = f.label :genre, class: "label"
-              = f.select :genre, [ ["ダンス",1], ["家電メーカー", 2], ["主婦", 3 ] ,["保育士", 4], ["学生", 5], ["営業", 6] ], prompt: "職業を選択してください", class: "input"
+          = f.label :開催日時
+          = f.date_select :datetime, {discard: true}
         
         .field
-          = f.label :day, class: "label"
-            = f.date_select :day, {discard: true}
-
+          = f.label :開催場所
+          = f.text_field :place, autofocus: true, autocomplete: "place", placeholder: "東京都", maxlength: "30", class: "input"
