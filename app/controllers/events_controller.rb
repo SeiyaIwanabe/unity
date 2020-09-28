@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     # @entries = @event.entry.includes(:user)
   end
 
-  def create
+  def new
   end
 
   def move_to_index

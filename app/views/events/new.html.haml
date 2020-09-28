@@ -1,0 +1,15 @@
+.EventCreateBox
+  .InputBox
+    %section.info
+      %h1.title
+        Event Create
+    %section.form
+      = form_with(model: @event, local: true, ) do |f|
+
+        .field
+          = f.label :eventname, class: "label"
+            = f.text_field :eventname, autofocus: true, autocomplete: "eventname", placeholder: "踊り祭り", maxlength: "30", class: "input"
+        
+        .field
+          = f.label :reward, class: "label"
+            = f.text_field :eventname, autofocus: true, autocomplete: "eventname", placeholder: "踊り祭り", maxlength: "30", class: "input"
