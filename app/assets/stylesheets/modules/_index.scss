@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-content {
+  padding: 180px 0 100px 0;
+  background-image: url(Top.jpeg);
+  background-size: cover;
+  color: white;
+  text-align: center;
+  height: 1200px;
+
+  .container {
+    margin-top: 150px;
+
+    h1 {
+      opacity: 0.7;
+      font-size: 50px;
+      letter-spacing: 10px;
+    }
+
+    p {
+      margin-top: 30px;
+      opacity: 0.9;
+    }
+
+    .btn-wrapper {
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+      width: 600px;
+
+      .btn-wrapper__btn--facebook {
+        color: #FFF;/*文字・アイコン色*/
+        border-radius: 7px;/*角丸に*/
+        display: inline-block;
+        height: 50px;/*高さ*/
+        width: 190px;/*幅*/
+        text-align: center;/*中身を中央寄せ*/
+        font-size: 25px;/*文字のサイズ*/
+        line-height: 50px;/*高さと合わせる*/
+        background: black;
+        overflow: hidden;/*はみ出た部分を隠す*/
+        text-decoration:none;/*下線は消す*/
+
+        .btn-wrapper__btn--facebook .facebook-square {
+          text-shadow: 2px 2px 0px #4287d6;
+          font-size: 30px;
+        }
+        .btn-wrapper__btn--icon {
+          margin-right: 10px;
+        }
+        .btn-wrapper__btn--facebook span {
+          display:inline-block;
+          transition: .5s;
+        }
+        .btn-wrapper__btn--facebook:hover span {
+          -webkit-transform: rotateX(360deg);
+          transform: rotateX(360deg);
+        }
+      } 
+
+      .btn-wrapper__btn--twitter {
+        color: #FFF;/*文字・アイコン色*/
+        border-radius: 7px;/*角丸に*/
+        display: inline-block;
+        height: 50px;/*高さ*/
+        width: 190px;/*幅*/
+        text-align: center;/*中身を中央寄せ*/
+        font-size: 25px;/*文字のサイズ*/
+        line-height: 50px;/*高さと合わせる*/
+        background: black;
+        overflow: hidden;/*はみ出た部分を隠す*/
+        text-decoration:none;/*下線は消す*/
+
+        .btn-wrapper__btn--twitter .twitter {
+          text-shadow: 2px 2px 0px #4287d6;
+          font-size: 30px;
+        }
+        .btn-wrapper__btn--icon {
+          margin-right: 10px;
+        }
+        .btn-wrapper__btn--twitter span {
+          display:inline-block;
+          transition: .5s;
+        }
+        .btn-wrapper__btn--twitter:hover span {
+          -webkit-transform: rotateX(360deg);
+          transform: rotateX(360deg);
+        }
+      }
+    }
+  }
+}
+
+
+.Main {
+  width: 100vw;
+  background-color:lightgray;
+
+  .container {
+    margin: 0 auto;
+
+    .heading {
+      padding-top: 60px;
+      padding-bottom: 30px;
+      color: #5f5d60;
+  
+      h2 {
+        font-weight: bold;
+        text-align: center;
+        font-size: 30px;
+      }
+    }
+
+    .Events {
+      margin: 0 auto;
+  
+      .Event {
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        padding: 30px;
+        border: 5px solid lightgray;
+        margin: auto;
+        // position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .name {
+          text-align: center;
+          font-size: 20px;
+        }
+
+        .important {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          margin-top: 5px;
+        }
+
+        table {
+          width: 100%;
+          border-spacing: 0;
+        
+          th {
+            border-bottom: solid 5px #fb5144;
+            padding: 10px 0;
+            width: 20%;
+          }
+        
+          td {
+            border-bottom: solid 2px #ddd;
+            text-align: center;
+            padding: 10px 0;
+          }
+          .detail {
+            text-align: left;
+          }
+        }
+
+        .show-btn {
+         text-align: center;
+          display: block;
+          text-decoration: none;
+          width: 25%;
+          padding: 0.5em 1em;
+          background: #668ad8;/*ボタン色*/
+          color: #FFF;
+          border-bottom: solid 4px #627295;
+          border-radius: 4px;
+          margin-top: 150px;
+        }
+        .show-btn:active {
+          /*ボタンを押したとき*/
+          -webkit-transform: translateY(4px);
+          transform: translateY(4px);/*下に動く*/
+          border-bottom: none;/*線を消す*/
+        }
+      }
+    }
+  }
+}

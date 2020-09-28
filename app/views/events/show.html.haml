@@ -1,0 +1,35 @@
+.Event
+  %h1.name 
+    = @event.name
+  %ul.important
+    %li.reward 報酬：
+    = @event.reward
+    %li.genre 募集ジャンル：
+    = @event.genre
+  %table
+    %tr
+      %th イベント内容
+      %td.content ココロとカラダが踊り出すダンスイベント”STEPJAM”とは、2013年より開始された年間1万人を動員する、 “表現の自由と発信力”をテーマにした参加型ダンスイベントです。
+    %tr
+      %th 日時
+      %td 2020/9/15
+    %tr
+      %th 開催場所
+      %td 渋谷（東京）
+    %tr
+      %th 募集人数
+      %td 30名
+  %p.item 【  詳細説明  】
+  %p.explanation 
+  大勢の観客、華やかな舞台。自分の頭に描いたダンスショーケースをカタチにしてみませんか？ダンスは本来、踊って・観て・調和して・楽しむもの。ステージに上がってスポットライトを浴び、観客の声と心地よい音楽に包まれながら味わう“非日常”を、一緒に創り上げていきましょう。stepjamではステージの演出に力を入れています。本格的なステージ機構と舞台照明・映像技術などを用いて、出演されるダンサーのバックアップをさせていただきます。こだわりぬいて創ってきたダンスショーケースを、ダンスイベントに精通した専門業者が華やかに彩り、最高のステージを演出します。stepjamでは１day開催につき、約3,000人を動員しています。年間では東京と大阪で年間10,000人を超えるイベントに成長しています。
+
+  .Application
+    = form_with(model: [@event, @entry], local: true, class: 'EventApplication') do |f|
+      -# = f.text_field :name, placeholder: "name", size: 30, class: "input"
+      -# = f.email_field :email, placeholder: "sample@.com", class: "input"
+      -# = f.text_field :phoneNumber, placeholder: "XXX-XXXX-XXXX", class: "input"
+      -# = icon("fas", "video", class: "video")
+      -# = f.label :video do
+      -#   = f.file_field :video, :accept => 'video/*', class: "Hidden"
+      = f.submit "申し込む", class: 'ApplicationSubmit'
+

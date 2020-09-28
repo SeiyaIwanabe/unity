@@ -1,0 +1,26 @@
+.Event
+  %h1.name
+    = event.name
+  %ul.important
+    %li.reward 報酬：
+    = event.reward
+    %li.genre 募集ジャンル：
+    = event.genre
+  %table
+    %tr
+      %th イベント内容
+      %td.detail ココロとカラダが踊り出すダンスイベント”STEPJAM”とは、2013年より開始された年間1万人を動員する、 “表現の自由と発信力”をテーマにした参加型ダンスイベントです。
+    %tr
+      %th 日時
+      %td 
+        = event.day
+    %tr
+      %th 開催場所
+      %td 
+        = event.place
+    %tr
+      %th 募集人数
+      %td 
+        = event.applicants
+  = link_to "詳細を見る", event_path(event.id), method: :get, class: "show-btn"
+ 

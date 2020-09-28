@@ -1,0 +1,149 @@
+.Adjust {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--FormBox {
+    width: 40vw;
+    height: 80vh;
+    text-align: center;
+    border: 1px solid lightgray;
+
+    .EditHeading {
+
+      .title {
+        color: black;
+        font-size: 3rem;
+        font-weight: bold;
+      }
+    }
+
+    .UserDetails__field {
+      height: 90%;
+
+      .EditForm {
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+      }
+      .UserImage {
+        margin-bottom: 20px;
+        
+        &__icon {
+          border-radius: 50%;
+          width: 150px;
+          height: 150px;
+          // position: relative;
+
+          // .TouchHere {
+          //   font-size: 3em;
+          //   position: absolute;
+          //   top: 0.5px;
+          //   // right: 50%;
+          // }
+
+          .Hidden {
+            display: none;
+            position: relative;
+          }
+        }
+
+        img {
+          border-radius: 50%;
+          width: 150px;
+          height: 150px;
+        }
+        .Hidden {
+          display: none;
+          position: relative;
+        }
+      }
+
+      .UserNameEdit {
+        margin-bottom: 20px;
+
+        .human {
+          font-size: 1.5em;
+          margin-right: 10px;
+        }
+        .text_field {
+          width: 50%;
+        }
+      }
+      
+      .UserEmailEdit {
+        margin-bottom: 20px;
+
+        .envelope {
+          font-size: 1.5em;
+          margin-right: 10px;
+        }
+        .text_field {
+          width: 50%;
+        }
+      }
+
+      .UserSkillEdit {
+        margin-bottom: 20px;
+
+        .badge {
+          font-size: 1.5em;
+          margin-right: 10px;
+        }
+        .text_field {
+          width: 50%;
+        }
+      }
+
+      .UserIntroductionEdit {
+        height: 50%;
+        margin-bottom: 40px;
+        position: relative;
+        
+        .address-card {
+          font-size: 1.5em;
+          position: absolute;
+          margin-right: 10px;
+          top: 0;
+          left: 170px;
+        }
+        .text_area {
+          width: 50%;
+          height: 100%;
+          margin-left: 35px;
+        }
+      }
+
+      .SubmitArea {
+        // margin-top: 2em;
+
+        &__btn {
+          width: 80px;
+          height: 80px;
+          border: 2px solid #000;
+          border-radius: 50%;
+          background: #fff;
+        }
+        &__btn:hover {
+          color: #fff;
+          background: #000;
+        }
+      }
+    }
+  }
+}
+// .EditBox {
+//   width: 100vw;
+//   height: 100vh;
+//   // background-image: image-url("IMG_1301.JPG");
+//   // background-size: cover;
+
+//   &--image {
+//     height: 100vh;
+//     background: rgba(255,255,255,0.3);
+
+//   }
+// }

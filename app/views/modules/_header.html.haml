@@ -1,0 +1,26 @@
+%header
+  .container
+    .header-left
+      %img.logo{:src => "https://dancemaster.avex.jp/academy/genre/images/t_hiphop.png"}
+    .header-center
+      %ul
+        %li
+          = link_to "Projects", events_path, method: :get, class: "btn"
+        %li 
+          = link_to "About", "#", method: :get, class: "btn"
+        %li 
+          = link_to "Contents", "#", method: :get, class: "btn"
+    .header-right
+      - if user_signed_in?
+        %ul
+          %li
+            = link_to "マイページ", "/users/#{current_user.id}", class: 'ToMypage'
+          %li
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Logout'
+      - else
+        %ul
+          %li
+            = link_to "ログイン", new_user_session_path, class: "post"
+          %li
+            = link_to "新規登録", new_user_registration_path, class: "post"
+

@@ -1,0 +1,31 @@
+.ContentMypage
+  .MypageTop
+    .MypageImage
+      - if @user.image?
+        = image_tag @user.image.url, class: "UserImage__icon"
+      - else
+        = image_tag asset_path("No-image.png")
+    .MypageName
+      = current_user.name
+
+  .MypageMiddle 
+    %h1 About Me
+    %table.ShowTable
+      %tr
+        %th 名前
+        %td.name 
+          = current_user.name
+      %tr
+        %th メールアドレス
+        %td.email
+          = current_user.email
+      %tr
+        %th パフォーマンススキル
+        %td.genre
+          = current_user.genre
+      %tr
+        %th 自己紹介
+        %td.introduction
+          = current_user.introduction
+    = link_to "プロフィール編集", edit_user_path(current_user.id), method: :get, class: "edit"
+

@@ -1,0 +1,45 @@
+.Adjust
+  .Adjust--FormBox
+    %section.EditHeading
+      %h1.title
+        Profile Edit
+    %section.UserDetails__field
+      = form_with(model: @user, local: true, class: :EditForm) do |f|
+
+        .UserImage 
+          - if @user.image?
+            = f.label :image, class: 'UserImage__icon' do
+              = image_tag @user.image.url, class: "UserImage__icon "
+              -# = icon("fa", "image", class: "TouchHere")
+              = f.file_field :image, class: 'Hidden'
+
+          - else
+            = f.label :image, class: 'UserImage__default' do
+              = image_tag asset_path 'No-image.png', class: 'TouchHere'
+              = f.file_field :image, class: 'Hidden'
+        
+        .UserNameEdit
+          = icon("fas", "user-circle", class: "human")
+          = f.label class: 'Username' do
+            = f.text_field :name, placeholder: "name", class: "text_field"
+              
+        
+        .UserEmailEdit
+          = icon("fas", "envelope", class: "envelope")
+          = f.label class: 'Useremail' do
+            = f.text_field :email, placeholder: "email", class: "text_field"
+
+        .UserSkillEdit
+          = icon("fas", "id-badge", class: "badge")
+          = f.label class: 'Userskill' do
+            = f.text_field :genre, placeholder: "skill", class: "text_field"
+        
+        .UserIntroductionEdit
+          = icon("fas", "address-card", class: "address-card")
+          = f.label class: 'Userintroduction' do
+            = f.text_area :introduction, placeholder: "紹介文", class: "text_area"
+        
+        .SubmitArea
+          = f.submit 'update', class: 'SubmitArea__btn' 
+-# .EditBox
+-#   .EditBox--image

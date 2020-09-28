@@ -1,0 +1,24 @@
+.top-content
+  .container
+    %h1 Unity
+    -# %h1 All You Want.
+    %p Unityは企業とパフォーマーをつなぐプラットフォームです。
+    %p あなたが培ってきたパフォーマンススキルを活かしてみませんか。
+    .btn-wrapper
+      = link_to "https://www.facebook.com/", class: "btn-wrapper__btn btn-wrapper__btn--facebook" do
+        = icon('fab', 'facebook-square',  class: "btn-wrapper__btn--icon")
+        %span<>
+          Facebook
+      = link_to "https://twitter.com/", class: "btn-wrapper__btn btn-wrapper__btn--twitter" do
+        = icon('fab', 'twitter', class: "btn-wrapper__btn--icon")
+        %span<>
+          Twitter
+
+.Main
+  .container
+    .heading
+      %h2 《  イベント一覧  》
+    .Events
+      - @events.each do |event|
+        =render partial: "event", locals: {event: event}
+          

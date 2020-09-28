@@ -1,0 +1,140 @@
+.Event {
+  width: 60%;
+  min-height: 100vh;
+  padding: 30px;
+  border: 5px solid lightgray;
+  margin: auto;
+  position: relative;
+  margin-top: 170px;  
+
+  .name {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .important {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+
+    .reward {
+      font-weight: bold;
+    }
+
+    .genre {
+      font-weight: bold;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-spacing: 0;
+    margin-top: 20px;
+  
+    th {
+      border-bottom: solid 5px #fb5144;
+      padding: 10px 0;
+      width: 20%;
+    }
+  
+    td {
+      border-bottom: solid 2px #ddd;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .detail {
+      text-align: left;
+    }
+  }
+
+  .item {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .explanation {
+    margin-top: 20px;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 40px;
+    left: 400px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 4px;
+  }
+  .btn:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+  }
+
+  .Application {
+    margin-top: 50px;
+
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .EventApplication {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .input {
+        display: block;
+        width: 50%;
+        margin-bottom: 10px;
+        padding: 15px;
+        border: 1px solid lightgray;
+        margin-top: 10px;
+      }
+
+      .video {
+        font-size: 2rem;
+      }
+      .Hidden {
+        // display: none;
+        position: relative;
+      }
+
+      .ApplicationSubmit {
+        color: black;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 45px;
+        width: 200px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        border: 1px solid transparent;
+        outline: 1px solid;
+        outline-color: rgba(255, 255, 255, 0.5);
+        outline-offset: 0px;
+        text-shadow: none;
+        transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+        text-align: center;
+      }
+      .ApplicationSubmit:hover {
+        border-color: #FFF;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+        outline-color: transparent;
+        outline-offset: 12px;
+        text-shadow: 2px 2px 3px #000;
+      }
+    }
+  }
+}

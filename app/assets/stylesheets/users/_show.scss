@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+.ContentMypage {
+  width: 100vw;
+  min-height: 100vh;
+  margin: auto;
+
+  .MypageTop {
+    height: 850px;
+    background-color: lightgreen;
+    position: relative;
+    background-image: url(Mypage.JPG);
+    background-size: cover;
+
+    .MypageImage {  
+      position: absolute;
+      top: 200px;
+      left: 800px;
+
+      .UserImage__icon {
+        width: 300px;
+        height: 300px;
+        //サイズ指定
+        border-radius: 150px;
+        //画像を丸くする
+        object-fit: cover;
+      }
+    }
+
+    .MypageName {
+      position: absolute;
+      top: 550px;
+      left: 870px;
+      font-size: 40px;
+      color: black;
+    }
+  }
+
+  .MypageMiddle {
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      // margin-top: 100px;
+      // margin-left: 830px;
+      font-size: 40px;
+      font-family: 'Caveat', cursive;
+      
+    }
+
+    .ShowTable {
+      width: 60%;
+      margin-top: 300px;
+      border-spacing: 0;
+      margin: 0 auto;
+
+      th {
+        border-bottom: solid 5px #fb5144;
+        padding: 10px 0;
+        width: 20%;
+      }
+    
+      td {
+        border-bottom: solid 2px #ddd;
+        text-align: center;
+        padding: 10px 0;
+      }
+      .introduction {
+        text-align: center;
+      }
+    }
+
+    .edit {
+      display: block;
+      text-decoration: none;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid #000;
+      background: #fff;
+      line-height: 150px;
+      text-align: center;
+      // font-weight: bold;
+      margin-top: 70px;
+    }
+    .edit:hover {
+      color: #fff;
+      background: #000;
+    }
+  }
+}
