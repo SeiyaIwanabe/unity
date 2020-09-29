@@ -13,6 +13,16 @@ class EventsController < ApplicationController
   end
 
   def new
+    @event = Event.new
+  end
+
+  def create
+    Event.create(event_params)
+  end
+
+  private
+  def event_params
+    params.require(:event).permit(:eventname, :image, :reward, :genre, :applicants, :place, :datetime, :details)
   end
 
   def move_to_index

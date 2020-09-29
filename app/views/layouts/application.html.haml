@@ -12,7 +12,8 @@
 
     %main.Wrapper
       = yield
-
-      = link_to "イベントを作成", new_event_path
+      
+      .CreateEvent
+        = link_to "イベントを作成", new_event_path, class: "CreateEvent--btn"
     
       = render "modules/footer"

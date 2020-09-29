@@ -19,9 +19,15 @@
           = f.select :genre, [ ["ダンス",1], ["歌", 2], ["広告モデル", 3 ] ,["楽器演奏", 4], ["その他", 5] ], prompt: "募集カテゴリを選択してください", class: "input"
         
         .field
+          = f.label :募集人数
+          = f.number_field :applicants, autofocus: true, min: 1, max: 1000, class: "input"
+        
+        .field
           = f.label :開催日時
           = f.date_select :datetime, {discard: true}
         
         .field
           = f.label :開催場所
           = f.text_field :place, autofocus: true, autocomplete: "place", placeholder: "東京都", maxlength: "30", class: "input"
+
+        = f.submit "イベント作成", class: "NewEventBtn"

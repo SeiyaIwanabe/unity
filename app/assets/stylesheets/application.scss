@@ -2,6 +2,7 @@
 @import "modules/index";
 @import "events/show";
 @import "events/new";
+@import "events/create";
 @import "users/show";
 @import "users/edit";
 @import "modules/update";
@@ -41,4 +42,37 @@
     position: relative;
     padding-bottom: 50px;
     box-sizing: border-box;
+
+    .CreateEvent {
+
+      &--btn {
+        position:fixed;
+        right:50px;
+        bottom:50px;
+        opacity:0.7;
+        color: black;
+        background-color: white;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 100px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        text-decoration: none;
+        text-transform: uppercase;
+        border: 1px solid lightgray;
+        // outline: 1px solid;
+        outline-color: rgba(255, 255, 255, 0.5);
+        outline-offset: 0px;
+        text-shadow: none;
+        transition: all 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+        text-align: center;
+      }
+      &--btn:hover {
+        color: white;
+        background-color: black;
+      }
+    }
+
  }
