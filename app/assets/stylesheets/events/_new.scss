@@ -7,11 +7,12 @@
 
   .InputBox {
     width: 50%;
-    height: 70%;
+    height: 900px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     border: 1px solid lightgray;
 
     .info {
@@ -39,6 +40,138 @@
           }
         }
       }
+
+      #ImageBox-1{
+        display: flex;
+        flex-wrap: wrap;
+
+        .EventImage{
+          width: 180px;
+        }
+        
+        .Event-num-0{
+          width: 940px;
+          content: '';
+          text-align: center;
+          height: 150px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .Event-num-1{
+          width: 760PX;
+          content: '';
+          text-align: center;
+          height: 180px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .Event-num-2{
+          width: 580PX;
+          content: '';
+          text-align: center;
+          height: 180px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .Event-num-3{
+          width: 400PX;
+          content: '';
+          text-align: center;
+          height: 180px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .Event-num-4{
+          width: 220PX;
+          content: '';
+          text-align: center;
+          height: 180px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .Event-num-5{
+          width: 940px;
+          content: '';
+          text-align: center;
+          height: 180px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .Event-num-6{
+          width: 760PX;
+          content: '';
+          text-align: center;
+          height: 180px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .Event-num-7{
+          width: 580PX;
+          content: '';
+          text-align: center;
+          height: 180px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .Event-num-8{
+          width: 400PX;
+          content: '';
+          text-align: center;
+          height: 180px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .Event-num-9{
+          width: 220PX;
+          content: '';
+          text-align: center;
+          height: 180px;
+          padding: 0.5em 1em;
+          background: #f0f7ff;
+          border: dashed 2px rgb(214, 214, 214);
+        }
+        .img-label{
+          flex-wrap: wrap;
+          .EventImage{
+            &__content{
+              &--icon{
+                object-fit: contain;
+              }
+            }
+          }
+        }
+        .fas.fa-camera{
+          margin-top: 75px;
+        }
+        .EventImage__operetion{
+          width: 50px;
+          margin-right: 0px;
+          &--delete{
+            cursor: pointer;
+            text-align: center;
+            &:hover{
+              background-color: #3CCACE;
+              border-radius: 4px;
+              color: #f0f7ff;
+            }
+          }
+        }
+        .js-file,.js-file-edit{
+          display: none;
+        }
+      }
+
+      
+
       .NewEventBtn {
         margin-top: 2rem;
         color: #FFF;

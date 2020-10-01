@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
-  has_many :event_images, dependent: :destroy
-  accepts_nested_attributes_for :event_images, allow_destroy: true
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   belongs_to :user
 
@@ -11,4 +11,7 @@ class Event < ApplicationRecord
   validates :place, presence: true
   validates :applicants, presence: true
   validates :details, presence: true
+  validates :images, presence: true
+
+  validates_associated :images
 end

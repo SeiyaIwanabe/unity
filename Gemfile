@@ -60,3 +60,5 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem "bulma-rails"
 gem 'streamio-ffmpeg'
+
+gem 'jquery-rails'

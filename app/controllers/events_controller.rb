@@ -14,15 +14,24 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @event.images.new
   end
 
   def create
-    Event.create(event_params)
+    @event = Event.new(event_params)
+    if @event.save
+      redirect_to root_path
+      flash.now[:alert] = "イベント作成に成功しました"
+    else
+      @event.images.new
+      render :new
+      flash.now[:alert] = "イベント作成に失敗しました"
+    end
   end
 
   private
   def event_params
-    params.require(:event).permit(:eventname, :image, :reward, :genre, :applicants, :place, :datetime, :details)
+    params.require(:event).permit(:eventname, :reward, :genre, :applicants, :place, :datetime, :details, images_attributes: [:image, :id]).merge(user_id: current_user.id)
   end
 
   def move_to_index

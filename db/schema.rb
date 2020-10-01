@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_155247) do
+ActiveRecord::Schema.define(version: 2020_10_01_085057) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,15 +43,15 @@ ActiveRecord::Schema.define(version: 2020_09_29_155247) do
   end
 
   create_table "event_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.string "image_url", null: false
+    t.bigint "event_id", null: false
+    t.string "src", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_images_on_event_id"
   end
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "eventname", null: false
-    t.string "company", null: false
     t.datetime "datetime"
     t.string "place"
     t.integer "reward"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 2020_09_29_155247) do
     t.string "applicants"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.string "image_url", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image", null: false
+    t.index ["event_id"], name: "index_images_on_event_id"
   end
 
   create_table "user_entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_155247) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "event_images", "events"
+  add_foreign_key "images", "events"
   add_foreign_key "user_entries", "entries"
   add_foreign_key "user_entries", "users"
 end
