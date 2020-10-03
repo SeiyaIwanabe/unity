@@ -1,0 +1,61 @@
+.EventCreateBox
+  .InputBox
+    %section.info
+      %h1.title
+        Event Create
+    %section.form
+      = form_with model: @event, local: true do |f|
+        .field
+          = f.label :イベント名
+          %span（必須）
+          = f.text_field :eventname, autofocus: true, autocomplete: "eventname", placeholder: "踊り祭り", maxlength: "30", class: "input"
+        
+        .EventField
+          .FormLabel
+            .LavelName
+              イベント画像
+              %span（必須）
+            -# .LavelRequired
+            -#   必須
+          #ImageBox-1
+            %label.img-label{for: "img-file"}
+              .Event-num-0#ImageBox__container
+                = f.fields_for :images do |image|
+                  #Append-js
+                    .js-file_group{"data-index" => "#{image.index}"}
+                      = image.file_field :image, type: 'file', id:"img-file", class:'js-file', data:{index:"0"}
+                %i.fas.fa-camera
+      
+        .field
+          = f.label :報酬額
+          %span（必須）
+          = f.number_field :reward, autofocus: true, min: 1000, max: 100000, class: "input"
+          円
+        
+        .field
+          = f.label :募集カテゴリ
+          %span（必須）
+          = f.select :genre, [ ["ダンス",1], ["歌", 2], ["広告モデル", 3] ,["楽器演奏", 4], ["その他", 5] ], prompt: "募集カテゴリを選択してください", class: "input"
+        
+        .field
+          = f.label :募集人数
+          %span（必須）
+          = f.number_field :applicants, autofocus: true, min: 1, max: 1000, class: "input"
+          人
+        
+        .field
+          = f.label :開催日時
+          %span（必須）
+          = f.date_select :datetime, {discard: true}
+        
+        .field
+          = f.label :開催場所
+          %span（必須）
+          = f.text_field :place, autofocus: true, autocomplete: "place", placeholder: "東京都", maxlength: "30", class: "input"
+
+        .field
+          = f.label :イベント詳細説明
+          %span（必須）
+          = f.text_area :details, autofocus: true, autocomplete: "details", placeholder: "このイベントは・・・", maxlength: "1000", class: "input"
+
+        = f.submit "イベント作成", class: "NewEventBtn"
