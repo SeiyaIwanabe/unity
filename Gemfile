@@ -62,3 +62,5 @@ gem "bulma-rails"
 gem 'streamio-ffmpeg'
 
 gem 'jquery-rails'
+
+gem 'rename'
