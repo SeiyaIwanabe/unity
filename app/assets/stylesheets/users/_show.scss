@@ -5,36 +5,33 @@
 .ContentMypage {
   width: 100vw;
   min-height: 100vh;
-  margin: auto;
+  margin: 0 auto;
 
   .MypageTop {
     height: 850px;
     background-color: lightgreen;
-    position: relative;
-    background-image: url(Mypage.JPG);
-    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 
     .MypageImage {  
-      position: absolute;
-      top: 200px;
-      left: 800px;
+      margin: 0 auto;
 
       .UserImage__icon {
         width: 300px;
         height: 300px;
         //サイズ指定
-        border-radius: 150px;
+        border: 1px solid white;
+        border-radius: 50%;
         //画像を丸くする
         object-fit: cover;
       }
     }
 
     .MypageName {
-      position: absolute;
-      top: 550px;
-      left: 870px;
       font-size: 40px;
-      color: black;
+      color: #fff;
     }
   }
 
@@ -77,20 +74,23 @@
 
     .edit {
       display: block;
+      background-color: #3CCACE;
+      color: #FFFFFF;
+      width: 40%;
+      height: 48px;
+      font-size: 18px;
+      border-radius: 100px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      margin-top: 150px;
       text-decoration: none;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 2px solid #000;
-      background: #fff;
-      line-height: 150px;
       text-align: center;
-      // font-weight: bold;
+      line-height: 48px;
       margin-top: 70px;
     }
     .edit:hover {
-      color: #fff;
-      background: #000;
+      opacity: 0.5;
     }
   }
 }

@@ -35,10 +35,10 @@
         .field
           = f.label :募集カテゴリ
           %span（必須）
-          = f.select :genre, [ ["ダンス",1], ["歌", 2], ["広告モデル", 3] ,["楽器演奏", 4], ["その他", 5] ], prompt: "募集カテゴリを選択してください", class: "input"
+          = f.select :genre, [ ["ダンス",1], ["歌", 2], ["撮影モデル", 3] ,["楽器演奏", 4], ["演技", 5], ["サロン・カットモデル", 6], ["エキストラ", 7], ["マジック", 8], ["その他", 9] ], prompt: "募集カテゴリを選択してください", required: true, class: "input"
         
         .field
-          = f.label :募集人数
+          = f.label :applicants, "募集人数"
           %span（必須）
           = f.number_field :applicants, autofocus: true, min: 1, max: 1000, class: "input"
           人
@@ -51,8 +51,13 @@
         .field
           = f.label :開催場所
           %span（必須）
-          = f.text_field :place, autofocus: true, autocomplete: "place", placeholder: "東京都", maxlength: "30", class: "input"
+          = f.text_field :place, autofocus: true, autocomplete: "place", placeholder: "例) 東京国際フォーラム", maxlength: "30", class: "input"
 
+        -# .field
+        -#   = f.label :詳細（住所、urlなど）
+        -#   %span（必須）
+        -#   = f.text_field :place, autofocus: true, autocomplete: "place", placeholder: "", maxlength: "30", class: "input"
+          
         .field
           = f.label :イベント詳細説明
           %span（必須）

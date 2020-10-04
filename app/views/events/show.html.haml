@@ -4,27 +4,34 @@
   %ul.important
     %li.reward 報酬：
     = @event.reward
+    円
     %li.genre 募集ジャンル：
     = @event.genre
+  .Event--image
+    = image_tag @event.images.first.image.url
   %table
-    %tr
-      %th イベント内容
-      %td.content ココロとカラダが踊り出すダンスイベント”STEPJAM”とは、2013年より開始された年間1万人を動員する、 “表現の自由と発信力”をテーマにした参加型ダンスイベントです。
+    -# %tr
+    -#   %th 
+    -#     = image_tag @event.images.first.image.url
+    -#   %td.detail イメージ図
     %tr
       %th 日時
-      %td 2020/9/15
+      %td 
+        = @event.datetime.strftime("%Y年%m月%d日")
     %tr
       %th 開催場所
-      %td 渋谷（東京）
+      %td 
+        = @event.place
     %tr
       %th 募集人数
-      %td 30名
+      %td 
+        = @event.applicants
   %p.item 【  詳細説明  】
-  %p.explanation 
-  大勢の観客、華やかな舞台。自分の頭に描いたダンスショーケースをカタチにしてみませんか？ダンスは本来、踊って・観て・調和して・楽しむもの。ステージに上がってスポットライトを浴び、観客の声と心地よい音楽に包まれながら味わう“非日常”を、一緒に創り上げていきましょう。stepjamではステージの演出に力を入れています。本格的なステージ機構と舞台照明・映像技術などを用いて、出演されるダンサーのバックアップをさせていただきます。こだわりぬいて創ってきたダンスショーケースを、ダンスイベントに精通した専門業者が華やかに彩り、最高のステージを演出します。stepjamでは１day開催につき、約3,000人を動員しています。年間では東京と大阪で年間10,000人を超えるイベントに成長しています。
+  %p.details 
+    = @event.details
 
   .Application
-    = form_with(model: [@event, @entry], local: true, class: 'EventApplication') do |f|
+    = form_with model: [@event, @entry], local: true, class: 'EventApplication' do |f|
       -# = f.text_field :name, placeholder: "name", size: 30, class: "input"
       -# = f.email_field :email, placeholder: "sample@.com", class: "input"
       -# = f.text_field :phoneNumber, placeholder: "XXX-XXXX-XXXX", class: "input"
@@ -33,3 +40,40 @@
       -#   = f.file_field :video, :accept => 'video/*', class: "Hidden"
       = f.submit "申し込む", class: 'ApplicationSubmit'
 
+  .MainShow__box__comment
+    .Title
+      コメント一覧
+    .MainShow__box__comments#Comments
+      - if @comments
+        - @comments.each do |comment|
+          .MainShow__box__comments__comment
+            .Profile
+              .Profile__right
+                .Image
+                  - if @user.image?
+                    = image_tag @user.image.url, class: "user-circle"
+                  - else
+                    = icon('far', 'smile-wink', class: "user-circle" )
+                .Seller_or_buyer
+                  = comment.user.name
+            .Comment
+              .Comment__text
+                = comment.content
+              .Comment__bottom
+                .Comment__date
+                  = icon('far', 'clock')
+                  = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                .Comment__trash
+                  = link_to event_comment_path(comment.event.id, comment.id), "event_id": :@event, method: :delete do
+                    = icon('fa', 'trash')
+    - if current_user
+      = form_with model: [@event, @comment], local: true, class: "New_comment", id: "comment_form" do |f|
+        = f.text_area :content, required: "required", class: "Text_area", placeholder: "コメントする"
+        %p.note
+          イベントの疑問点についてコメントをしてみましょう。
+          %br 不快な言葉遣いなどは利用制限や退会処分となる場合があります。
+        .Send
+          = f.submit "コメントする", class: "Comment__btn"
+    - else
+      %p.note
+        イベントへの申込みやコメントの投稿には新規会員登録/ログインが必要です。

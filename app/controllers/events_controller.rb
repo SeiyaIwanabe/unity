@@ -1,13 +1,18 @@
 class EventsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :authenticate_user!, only: [:show]
+  before_action :set_event, only: [:show]
+  before_action :show_all_instans, only: [:show]
   
   def index
-    @events = Event.all
+    @events = Event.all.order(id: "DESC")
   end
 
   def show
-    @event = Event.find(params[:id])
+    @comment = Comment.new
+    @comments = @event.comments.includes(:user)
+    #新着順で表示
+    # @comments = @event.comments.order(created_at: :desc)
     @entry = Entry.new
     # @entries = @event.entry.includes(:user)
   end
@@ -32,6 +37,16 @@ class EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(:eventname, :reward, :genre, :applicants, :place, :datetime, :details, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  def show_all_instans
+    @user = @event.user
+    # @images = Image.where(event_id: params[:id])
+    # @image = @images.first
   end
 
   def move_to_index
