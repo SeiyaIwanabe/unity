@@ -4,6 +4,7 @@
   %ul.important
     %li.reward 報酬：
     = event.reward
+    円
     %li.genre 募集ジャンル：
     = event.genre
   %table
@@ -14,7 +15,7 @@
     %tr
       %th 日時
       %td 
-        = event.datetime
+        = event.datetime.strftime("%Y年%m月%d日")
     %tr
       %th 開催場所
       %td 
