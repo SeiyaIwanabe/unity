@@ -8,7 +8,7 @@ class User < ApplicationRecord
   
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :entries
   # has_many :user_entries
   # has_many :entries, through: :user_entries
-  has_many :entries
 end
