@@ -29,3 +29,12 @@
           = @user.introduction
     = link_to "プロフィール編集", edit_user_path(@user.id), method: :get, class: "edit"
 
+  .ApplicatedEvent
+    %h1 申し込み済みのイベント一覧
+    - @entry_events.each do |event| #自分が申し込んだイベントの情報を閲覧
+      .Overview
+        .Overview--name
+          = event.eventname
+        .Overview--image
+          = image_tag event.images.first.image.url
+
