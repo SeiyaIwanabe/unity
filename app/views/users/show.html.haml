@@ -4,7 +4,7 @@
       - if @user.image?
         = image_tag @user.image.url, class: "UserImage__icon"
       - else
-        = image_tag asset_path("No-image.png")
+        = image_tag asset_path("No-image.png"), class: "NoImage__icon"
     .MypageName
       = @user.name
 

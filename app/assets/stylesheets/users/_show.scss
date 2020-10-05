@@ -27,6 +27,15 @@
         //画像を丸くする
         object-fit: cover;
       }
+      .NoImage__icon {
+        width: 300px;
+        height: 300px;
+        //サイズ指定
+        border: 1px solid white;
+        border-radius: 50%;
+        //画像を丸くする
+        object-fit: cover;
+      }
     }
 
     .MypageName {
