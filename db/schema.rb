@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_160813) do
+ActiveRecord::Schema.define(version: 2020_10_05_172100) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 2020_10_03_160813) do
   end
 
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
-    t.string "phoneNumber", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "video"
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.index ["event_id"], name: "index_entries_on_event_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,6 +103,8 @@ ActiveRecord::Schema.define(version: 2020_10_03_160813) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
+  add_foreign_key "entries", "events"
+  add_foreign_key "entries", "users"
   add_foreign_key "events", "users"
   add_foreign_key "images", "events"
   add_foreign_key "user_entries", "entries"

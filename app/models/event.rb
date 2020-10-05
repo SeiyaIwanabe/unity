@@ -4,6 +4,7 @@ class Event < ApplicationRecord
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :entries
 
   validates :eventname, presence: true
   validates :reward, presence: true

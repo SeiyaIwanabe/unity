@@ -34,14 +34,15 @@
     %h1.EventOwener あなたはイベント作成者ですわ。
   - else
     .Application
-      = form_with model: [@event, @entry], local: true, class: 'EventApplication' do |f|
+      = link_to "申し込む", event_entries_path(@event.id), class: "ApplicationSubmit", method: :post
+      -# = form_with model: [@event, @entry], local: true, class: 'EventApplication' do |f|
         -# = f.text_field :name, placeholder: "name", size: 30, class: "input"
         -# = f.email_field :email, placeholder: "sample@.com", class: "input"
         -# = f.text_field :phoneNumber, placeholder: "XXX-XXXX-XXXX", class: "input"
         -# = icon("fas", "video", class: "video")
         -# = f.label :video do
         -#   = f.file_field :video, :accept => 'video/*', class: "Hidden"
-        = f.submit "申し込む", class: 'ApplicationSubmit'
+        -# = f.submit "申し込む", class: 'ApplicationSubmit'
 
     .MainShow__box__comment
       .Title
