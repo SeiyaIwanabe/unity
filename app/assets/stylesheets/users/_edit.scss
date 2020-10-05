@@ -52,11 +52,18 @@
             position: relative;
           }
         }
+        .NoImage__icon {
+          border-radius: 50%;
+          width: 150px;
+          height: 150px;
+          border: 1px solid lightgray;
+        }
 
         img {
           border-radius: 50%;
           width: 150px;
           height: 150px;
+          border: 1px solid lightgray;
         }
         .Hidden {
           display: none;

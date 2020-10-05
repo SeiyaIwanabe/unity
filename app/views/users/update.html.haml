@@ -1,4 +1,4 @@
 .ContentUpdate
   .success
     %h3 更新が完了しました。
-    %a.btn{:href => "/users/#{current_user.id}"} マイページに戻る
+    = link_to "マイページに戻る", user_path(current_user), class: "UpdatedUser"
