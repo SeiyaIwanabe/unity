@@ -38,6 +38,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -73,5 +74,5 @@ gem 'jquery-rails'
 gem 'rename'
 
 group :production do
-  gem 'unicorn'
+  gem 'pg'
 end
