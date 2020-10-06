@@ -6,6 +6,10 @@ class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :entries
 
+  def entried_by?(user)
+    entries.where(user_id: user.id).exists?
+  end
+
   validates :eventname, presence: true
   validates :reward, presence: true
   validates :genre, presence: true

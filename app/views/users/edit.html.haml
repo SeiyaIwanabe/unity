@@ -19,23 +19,23 @@
               = f.file_field :image, class: 'Hidden'
         
         .UserNameEdit
-          = icon("fas", "user-circle", class: "human")
+          %p 名前：
           = f.label class: 'Username' do
             = f.text_field :name, placeholder: "name", class: "text_field"
               
         
         .UserEmailEdit
-          = icon("fas", "envelope", class: "envelope")
+          %p メールアドレス：
           = f.label class: 'Useremail' do
             = f.text_field :email, placeholder: "email", class: "text_field"
 
         .UserSkillEdit
-          = icon("fas", "id-badge", class: "badge")
+          %p 特技：
           = f.label class: 'Userskill' do
             = f.text_field :genre, placeholder: "skill", class: "text_field"
         
         .UserIntroductionEdit
-          = icon("fas", "address-card", class: "address-card")
+          %p 自己紹介文：
           = f.label class: 'Userintroduction' do
             = f.text_area :introduction, placeholder: "紹介文", class: "text_area"
         

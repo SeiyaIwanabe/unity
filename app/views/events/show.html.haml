@@ -32,6 +32,8 @@
 
   - if @event.user_id == current_user.id
     %h1.EventOwener あなたはイベント作成者ですわ。
+  - elsif @event.entries.where(user_id: current_user.id).exists?
+    %h1.EventOwener このイベントには申し込み済みよ。
   - else
     .Application
       = link_to "申し込む", event_entries_path(@event.id), class: "ApplicationSubmit", method: :post
