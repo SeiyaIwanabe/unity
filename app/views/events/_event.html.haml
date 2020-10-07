@@ -24,5 +24,12 @@
       %th 募集人数
       %td 
         = event.applicants
-  = link_to "詳細を見る", event_path(event.id), method: :get, class: "show-btn"
+
+  .Auth-Area
+    - if user_signed_in? && current_user.id == event.user_id
+      = link_to "詳細を見る", event_path(event.id), method: :get, class: "show-btn"
+      = link_to "イベントを削除する", event_path(event.id), method: :delete, class: "Event-delete"
+    - else
+      = link_to "詳細を見る", event_path(event.id), method: :get, class: "show-btn"
+
  
