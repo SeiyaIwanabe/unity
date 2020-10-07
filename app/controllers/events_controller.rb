@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :authenticate_user!, only: [:show]
-  before_action :set_event, only: [:show]
+  before_action :set_event, only: [:show, :destroy]
   before_action :show_all_instans, only: [:show]
   
   def index
@@ -33,6 +33,11 @@ class EventsController < ApplicationController
       flash.now[:alert] = "イベント作成に失敗しました"
     end
   end
+
+  def destroy
+    @event.destroy
+  end
+
 
   private
   def event_params
