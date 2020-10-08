@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :authenticate_user!, only: [:show]
   before_action :set_event, only: [:show, :destroy]
+  # before_action :set_user, only: [:index]
   before_action :show_all_instans, only: [:show]
   
   def index
@@ -47,6 +48,10 @@ class EventsController < ApplicationController
   def set_event
     @event = Event.find(params[:id])
   end
+
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 
   def show_all_instans
     @user = @event.user

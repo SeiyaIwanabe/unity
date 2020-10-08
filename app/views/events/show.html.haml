@@ -36,7 +36,7 @@
     %h1.EventOwener このイベントには申し込み済みよ。
   - else
     .Application
-      = link_to "申し込む", event_entries_path(@event.id), class: "ApplicationSubmit", method: :post
+      = link_to "申し込む", event_entries_path(@event.id), id: "JoinEvent", class: "ApplicationSubmit", method: :post
       -# = form_with model: [@event, @entry], local: true, class: 'EventApplication' do |f|
         -# = f.text_field :name, placeholder: "name", size: 30, class: "input"
         -# = f.email_field :email, placeholder: "sample@.com", class: "input"

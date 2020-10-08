@@ -31,5 +31,13 @@
       = link_to "イベントを削除する", event_path(event.id), method: :delete, class: "Event-delete"
     - else
       = link_to "詳細を見る", event_path(event.id), method: :get, class: "show-btn"
+  
+  .Event-host
+    .Event-host--name
+      %p イベント作成者:
+      = event.user.name
+    .Event-host--image
+      = image_tag event.user.image.url, class: "UserImage__icon"
+    
 
  
