@@ -215,7 +215,24 @@
             display: flex;
           }
           &--image{
-            
+            .UserImage__icon {
+              width: 200px;
+              height: 200px;
+              //サイズ指定
+              border: 1px solid lightgray;
+              border-radius: 50%;
+              //画像を丸くする
+              object-fit: cover;
+            }
+            .NoImage__icon {
+              width: 200px;
+              height: 200px;
+              //サイズ指定
+              border: 1px solid lightgray;
+              border-radius: 50%;
+              //画像を丸くする
+              object-fit: cover;
+            }
           }
         }
       }

@@ -31,7 +31,7 @@
 
   .ApplicatedEvent
     %h1 申し込み済みのイベント一覧
-    - @entry_events.each do |event| #自分が申し込んだイベントの情報を閲覧
+    - @entry_events.each do |event| #自分が申し込んだイベントの情報を表示
       .Overview
         .Overview--name
           = event.eventname

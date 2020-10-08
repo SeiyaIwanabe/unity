@@ -9,6 +9,7 @@ class EntriesController < ApplicationController
       redirect_to root_path
     else
       render template: "events/show"
+    end
   end
-
+  
 end
