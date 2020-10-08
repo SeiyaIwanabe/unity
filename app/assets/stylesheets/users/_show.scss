@@ -103,6 +103,12 @@
     }
   }
 
+  .ApplicatedEventName {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
   .ApplicatedEvent {
     height: 500px;
     display: flex;
@@ -110,11 +116,6 @@
     // flex-direction: column;
     align-items: center;
     
-    h1 {
-      text-align: center;
-      font-weight: bold;
-      font-size: 2rem;
-    }
     .Overview {
       width: 250px;
       height: 250px;
