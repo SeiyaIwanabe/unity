@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   before_action :show_all_instans, only: [:show]
   
   def index
-    @events = Event.all.order(id: "DESC")
+    @events = Event.all.order(id: "DESC").includes(:user)
   end
 
   def show
