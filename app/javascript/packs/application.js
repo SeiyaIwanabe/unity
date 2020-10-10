@@ -10,6 +10,7 @@ require("channels")
 require('jquery')
 
 require('events_new.js')
+require('event_create.js')
 // require('comment.js')
 require('join_event.js')
 
