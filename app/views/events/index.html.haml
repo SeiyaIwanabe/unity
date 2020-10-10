@@ -14,12 +14,11 @@
         %span<>
           Twitter
 
-- if @event
-  .Main
-    .container
-      .heading
-        %h2 《  イベント一覧  》
-      .Events
-        - @events.each do |event|
-          =render partial: "event", locals: {event: event}
+.Main
+  .container
+    .heading
+      %h2 《  イベント一覧  》
+    .Events
+      - @events.each do |event|
+        =render partial: "event", locals: {event: event}
           

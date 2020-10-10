@@ -15,9 +15,9 @@ class Event < ApplicationRecord
   validates :genre, presence: true
   validates :datetime, presence: true
   validates :place, presence: true
-  validates :applicants, presence: true
+  validates :limit, presence: true
   validates :details, presence: true
-  validates :images, presence: true
 
+  validates :images, presence: true
   validates_associated :images
 end

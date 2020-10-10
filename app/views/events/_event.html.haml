@@ -23,7 +23,7 @@
     %tr
       %th 募集人数
       %td 
-        = event.applicants
+        = event.limit
 
   .Auth-Area
     - if user_signed_in? && current_user.id == event.user_id #ログインしているユーザーIDとイベント作成者のIDが一致しているかどうか
