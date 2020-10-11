@@ -6,6 +6,9 @@ class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :entries, dependent: :destroy
 
+  belongs_to :recruiter, class_name: "User"
+  belongs_to :applicant, class_name: "User"
+
   def entried_by?(user)
     entries.where(user_id: user.id).exists?
   end

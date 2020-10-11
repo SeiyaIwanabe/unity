@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_233622) do
+ActiveRecord::Schema.define(version: 2020_10_10_235344) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -62,10 +62,8 @@ ActiveRecord::Schema.define(version: 2020_10_10_233622) do
     t.string "limit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.integer "recruiter_id"
     t.integer "applicant_id"
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -107,7 +105,6 @@ ActiveRecord::Schema.define(version: 2020_10_10_233622) do
   add_foreign_key "comments", "users"
   add_foreign_key "entries", "events"
   add_foreign_key "entries", "users"
-  add_foreign_key "events", "users"
   add_foreign_key "images", "events"
   add_foreign_key "user_entries", "entries"
   add_foreign_key "user_entries", "users"
