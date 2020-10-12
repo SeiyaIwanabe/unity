@@ -38,7 +38,7 @@
           = f.select :genre, [ ["ダンス",1], ["歌", 2], ["撮影モデル", 3] ,["楽器演奏", 4], ["演技", 5], ["サロン・カットモデル", 6], ["エキストラ", 7], ["マジック", 8], ["その他", 9] ], prompt: "募集カテゴリを選択してください", required: true, class: "input"
         
         .field
-          = f.label :limit, "募集人数"
+          = f.label :募集人数
           %span（必須）
           = f.number_field :limit, autofocus: true, min: 1, max: 1000, class: "input"
           人

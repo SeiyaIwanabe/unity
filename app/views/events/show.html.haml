@@ -30,7 +30,7 @@
   %p.details 
     = @event.details
 
-  - if @event.user_id == current_user.id
+  - if @event.recruiter_id == current_user.id
     %h1.EventOwener あなたはイベント作成者ですわ。
   - elsif @event.entries.where(user_id: current_user.id).exists?
     %h1.EventOwener このイベントには申し込み済みよ。

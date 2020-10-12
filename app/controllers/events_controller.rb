@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   before_action :show_all_instans, only: [:show]
   
   def index
-    @events = Event.all.order(id: "DESC").includes(:user)
+    @events = Event.all.order(id: "DESC").includes(:recruiter)
   end
 
   def show
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:eventname, :reward, :genre, :limit, :place, :datetime, :details, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+    params.require(:event).permit(:eventname, :reward, :genre, :limit, :place, :datetime, :details, :recruiter_id, images_attributes: [:image, :id]).merge(recruiter_id: current_user.id)
   end
 
   def set_event
@@ -54,7 +54,7 @@ class EventsController < ApplicationController
   # end
 
   def show_all_instans
-    @user = @event.user
+    @recruiter = @event.recruiter
     # @images = Image.where(event_id: params[:id])
     # @image = @images.first
   end
