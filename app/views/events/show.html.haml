@@ -83,3 +83,11 @@
       - else
         %p.note
           イベントへの申込みやコメントの投稿には新規会員登録/ログインが必要です。
+  
+  .Applicant
+    %h2 申込者一覧
+    = @applicants.length
+    人
+    - @applicants.each do |applicant|
+      .Applicant--image
+        = image_tag applicant.user.image.url

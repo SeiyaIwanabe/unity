@@ -11,5 +11,10 @@ class EntriesController < ApplicationController
       render template: "events/show"
     end
   end
+
+  def show_entries
+    @event = Event.find(params[:id])
+    @applicants = Entry.where(event_id: @event.id).all
+  end
   
 end

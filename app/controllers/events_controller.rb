@@ -16,6 +16,7 @@ class EventsController < ApplicationController
     # @comments = @event.comments.order(created_at: :desc)
     @entry = Entry.new
     # @entries = @event.entry.includes(:user)
+    @applicants = Entry.where(event_id: @event.id).all
   end
 
   def new
