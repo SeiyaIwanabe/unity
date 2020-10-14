@@ -15,6 +15,11 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :entry_events, through: :entries, source: :event
 
+  #DM機能関連
+  has_many :messages
+  has_many :deals
+  has_many :rooms, through: :deals
+
   
   has_many :comments, dependent: :destroy
   
