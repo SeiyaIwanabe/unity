@@ -310,4 +310,48 @@
     padding: 10px;
     display: flex;
   }
+  
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .Applicant {
+    width: 60%;
+    border-top: 1px solid lightgray;
+    white-space:nowrap;
+    overflow: scroll;
+    display: flex;
+    justify-content: space-evenly;
+
+    &__Members {
+      width: 200px;
+      // height: 200px;
+      border: 1px solid lightgray;
+      // border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      &--image {
+        width: 100%;
+
+        .Applicant-image {
+          width: 100%;
+        }
+        .NoImage__icon {
+          width: 100%;
+        }
+      }
+      &--name {
+
+        .To-applicant {
+          display: block;
+          text-decoration: none;
+          text-align: center;
+        }
+      }
+    }
+  }
 }

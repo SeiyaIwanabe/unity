@@ -2,5 +2,8 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  validates :message, presence: true
+  validates :message, presence: true, unless: :image?
+
+  mount_uploader :image, ImageUploader
+
 end

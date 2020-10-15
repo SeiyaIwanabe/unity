@@ -27,7 +27,8 @@
         %th 自己紹介
         %td.introduction
           = @user.introduction
-    = link_to "プロフィール編集", edit_user_path(@user.id), method: :get, class: "edit"
+    - if user_signed_in? && current_user.id == @user.id
+      = link_to "プロフィール編集", edit_user_path(@user.id), method: :get, class: "edit"
 
   .ApplicatedEventName 申し込み済みのイベント一覧
 
@@ -39,3 +40,11 @@
         .Overview--image
           = image_tag event.images.first.image.url
 
+  - unless @user.id == current_user.id
+    - if @haveRoom == true
+      = link_to "ダイレクトメッセージ", room_path(@roomId)
+    - else
+      = form_with(model:@room, local: true) do |f|
+        = fields_for @entry do |e|
+          = e.hidden_field :user_id, value: @user.id
+        = f.submit "ダイレクトメッセージ"

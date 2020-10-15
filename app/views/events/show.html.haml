@@ -46,48 +46,53 @@
         -#   = f.file_field :video, :accept => 'video/*', class: "Hidden"
         -# = f.submit "申し込む", class: 'ApplicationSubmit'
 
-    .MainShow__box__comment
-      .Title
-        コメント一覧
-      .MainShow__box__comments#Comments
-        - if @comments
-          - @comments.each do |comment|
-            .MainShow__box__comments__comment
-              .Profile
-                .Profile__right
-                  .Image
-                    - if @user.image?
-                      = image_tag @user.image.url, class: "user-circle"
-                    - else
-                      = icon('far', 'smile-wink', class: "user-circle" )
-                  .Seller_or_buyer
-                    = comment.user.name
-              .Comment
-                .Comment__text
-                  = comment.content
-                .Comment__bottom
-                  .Comment__date
-                    = icon('far', 'clock')
-                    = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
-                  .Comment__trash
-                    = link_to event_comment_path(comment.event.id, comment.id), "event_id": :@event, method: :delete do
-                      = icon('fa', 'trash')
-      - if current_user
-        = form_with model: [@event, @comment], local: true, class: "New_comment", id: "comment_form" do |f|
-          = f.text_area :content, required: "required", class: "Text_area", placeholder: "コメントする"
-          %p.note
-            イベントの疑問点についてコメントをしてみましょう。
-            %br 不快な言葉遣いなどは利用制限や退会処分となる場合があります。
-          .Send
-            = f.submit "コメントする", class: "Comment__btn"
-      - else
+  .MainShow__box__comment
+    .Title
+      コメント一覧
+    .MainShow__box__comments#Comments
+      - if @comments
+        - @comments.each do |comment|
+          .MainShow__box__comments__comment
+            .Profile
+              .Profile__right
+                .Image
+                  - if comment.user.image?
+                    = image_tag comment.user.image.url, class: "user-circle"
+                  - else
+                    = icon('far', 'smile-wink', class: "user-circle" )
+                .Seller_or_buyer
+                  = comment.user.name
+            .Comment
+              .Comment__text
+                = comment.content
+              .Comment__bottom
+                .Comment__date
+                  = icon('far', 'clock')
+                  = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                .Comment__trash
+                  = link_to event_comment_path(comment.event.id, comment.id), "event_id": :@event, method: :delete do
+                    = icon('fa', 'trash')
+    - if current_user
+      = form_with model: [@event, @comment], local: true, class: "New_comment", id: "comment_form" do |f|
+        = f.text_area :content, required: "required", class: "Text_area", placeholder: "コメントする"
         %p.note
-          イベントへの申込みやコメントの投稿には新規会員登録/ログインが必要です。
+          イベントの疑問点についてコメントをしてみましょう。
+          %br 不快な言葉遣いなどは利用制限や退会処分となる場合があります。
+        .Send
+          = f.submit "コメントする", class: "Comment__btn"
+    - else
+      %p.note
+        イベントへの申込みやコメントの投稿には新規会員登録/ログインが必要です。
+  
+  %h2 申込者一覧
   
   .Applicant
-    %h2 申込者一覧
-    = @applicants.length
-    人
     - @applicants.each do |applicant|
-      .Applicant--image
-        = image_tag applicant.user.image.url
+      .Applicant__Members
+        .Applicant__Members--image
+          - if applicant.user.image?
+            = image_tag applicant.user.image.url, class: "Applicant-image"
+          - else
+            = image_tag asset_path("No-image.png"), class: "NoImage__icon"
+        .Applicant__Members--name
+          = link_to "申込者詳細ページ", user_path(applicant.user.id), class: "To-applicant"

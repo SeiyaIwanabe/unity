@@ -56,6 +56,7 @@ class EventsController < ApplicationController
 
   def show_all_instans
     @recruiter = @event.recruiter
+    # @user = @event.user
     # @images = Image.where(event_id: params[:id])
     # @image = @images.first
   end
