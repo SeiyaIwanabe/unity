@@ -33,14 +33,14 @@
       = link_to "詳細を見る", event_path(event.id), method: :get, class: "show-btn"
   
   .Event-host
-    .Event-host--name
-      %p イベント作成者:
-      = event.recruiter.name
+    .Event-host--name イベント作成者：
     .Event-host--image
       - if event.recruiter.image.url
         = image_tag event.recruiter.image.url, class: "UserImage__icon"
       - else
         = image_tag asset_path("No-image.png"), class: "NoImage__icon"
+    %p.recruiter-name
+      = event.recruiter.name
 
     
 
