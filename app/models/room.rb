@@ -13,5 +13,6 @@ class Room < ApplicationRecord
     else
       'まだメッセージはありません。'
     end
-    
   end
+  
+end

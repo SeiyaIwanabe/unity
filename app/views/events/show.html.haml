@@ -31,9 +31,9 @@
     = @event.details
 
   - if @event.recruiter_id == current_user.id
-    %h1.EventOwener あなたはイベント作成者ですわ。
+    %h1.EventOwener あなたはイベント作成者です。
   - elsif @event.entries.where(user_id: current_user.id).exists?
-    %h1.EventOwener このイベントには申し込み済みよ。
+    %h1.EventOwener このイベントには申し込み済みです。
   - else
     .Application
       = link_to "申し込む", event_entries_path(@event.id), id: "JoinEvent", class: "ApplicationSubmit", method: :post
@@ -92,7 +92,7 @@
         .Applicant__Members--image
           - if applicant.user.image?
             = image_tag applicant.user.image.url, class: "Applicant-image"
-          - else
+          - else  
             = image_tag asset_path("No-image.png"), class: "NoImage__icon"
         .Applicant__Members--name
-          = link_to "申込者詳細ページ", user_path(applicant.user.id), class: "To-applicant"
+          = link_to "申込者詳細ページ", user_path(applicant.id), class: "To-applicant"
