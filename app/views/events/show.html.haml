@@ -33,7 +33,7 @@
   - if @event.recruiter_id == current_user.id
     %h1.EventOwener あなたはイベント作成者です。
   - elsif @event.entries.where(user_id: current_user.id).exists?
-    %h1.EventOwener このイベントには申し込み済みです。
+    %h1.EventOwener このイベントは申し込み済みです。
   - else
     .Application
       = link_to "申し込む", event_entries_path(@event.id), id: "JoinEvent", class: "ApplicationSubmit", method: :post
@@ -95,4 +95,5 @@
           - else  
             = image_tag asset_path("No-image.png"), class: "NoImage__icon"
         .Applicant__Members--name
-          = link_to "申込者詳細ページ", user_path(applicant.id), class: "To-applicant"
+          = link_to user_path(applicant.user.id), class: "To-applicant" do
+            = applicant.user.name

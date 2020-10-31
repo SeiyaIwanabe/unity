@@ -5,11 +5,11 @@
     .header-center
       %ul
         %li
-          = link_to "Projects", events_path, method: :get, class: "btn"
+          = link_to "案件一覧", events_path, method: :get, class: "btn"
+        -# %li 
+        -#   = link_to "Unityとは", "#", method: :get, class: "btn"
         %li 
-          = link_to "About", "#", method: :get, class: "btn"
-        %li 
-          = link_to "Contents", "#", method: :get, class: "btn"
+          = link_to "メッセージ", "#", method: :get, class: "btn"
     .header-right
       - if user_signed_in?
         %ul

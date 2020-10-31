@@ -1,32 +1,33 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @rooms = current_user.rooms.includes(:messages).order("messages.created_at desc")
-  end
-
-  def create
-    @room = Room.create
-    @joinCurrentUser = Deal.create(user_id: current_user.id, room_id: @room.id)
-    @joinUser = Deal.create(join_room_params)
-    @first_message = @room.messages.create(user_id: current_user.id, message: "初めまして！")
-    redirect_to room_path(@room.id)
-  end
-
   def show
-    @room = Room.find(params[:id])
-    if Deal.where(user_id: current_user.id, room_id: @room.id).present?
-      @messages = @room.messages.includes(:user).order("created_at asc")
-      @message = Message.new
-      @deals = @room.deals
-    else
-      redirect_back(fallback_location: root_path)
-    end
-  end
+    # どのユーザーとチャットするかを取得。
+    @user = User.find(params[:id])
 
-  private
-  def join_room_params
-    params.permit(:user_id, :room_id).merge(room_id: @room.id)
+    # カレントユーザーのuser_roomにあるroom_idの値の配列をroomsに代入。
+    rooms = current_user.user_rooms.pluck(:room_id)
+
+    # user_roomモデルから
+    # user_idがチャット相手のidが一致するものと、
+    # room_idが上記roomsのどれかに一致するレコードを
+    # user_roomsに代入。
+    user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
+
+    # もしuser_roomが空でないなら
+    unless user_rooms.nil?
+      # @roomに上記user_roomのroomを代入
+      @room = user_rooms.room
+    else
+      # それ以外は新しくroomを作り、
+      @room = Room.new
+      @room.save
+      # user_roomをカレントユーザー分とチャット相手分を作る
+      Deal.create(user_id: current_user.id, room_id: @room.id)
+      Deal.create(user_id: @user.id, room_id: @room.id)
+    end
+    @chats = @room.chats
+    @chat = Chat.new(room_id: @room.id)
   end
   
 end

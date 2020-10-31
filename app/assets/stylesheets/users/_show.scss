@@ -133,4 +133,26 @@
       }
     }
   }
+  .To-ChatRoom {
+    display: flex;
+    justify-content: center;
+
+    .ChatRoom-btn {
+      display: block;
+      background-color: #3CCACE;
+      color: #FFFFFF;
+      width: 250px;
+      height: 48px;
+      font-size: 18px;
+      border-radius: 100px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      margin-top: 150px auto;
+      text-decoration: none;
+      text-align: center;
+      line-height: 48px;
+      margin-bottom: 100px;
+    }
+  }
 }
