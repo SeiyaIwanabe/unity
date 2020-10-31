@@ -2,4 +2,11 @@
   width: 70vw;
   height: 100vh;
   margin: 150px auto;
+
+  .chats {
+
+    .chat {
+      overflow: scroll
+    }
+  }
 }

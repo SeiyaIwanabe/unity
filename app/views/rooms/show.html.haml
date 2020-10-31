@@ -1,31 +1,31 @@
 .ChatSpace
-  .left-button
   %h4.rooms-title 気になる同士
-  - @deals.each do |e|
-    .user-name
-      %strong
-        = image_tag "#{e.user.image}", class:"image"
-        %a.rooms-user-link{href: "/users/#{e.user.id}"}
-          = e.user.name
-          さん
-  %hr
+  -# - @deals.each do |d|
+  -#   .user-name
+  -#     %strong
+  -#       = image_tag d.user.image.url, class:"user-image"
+  -#       %a.rooms-user-link{:href => "/users/#{d.user.id}"}
+  -#         = d.user.name
+  -#         さん
+  %hr/
+
   .chats
-    .chat__scroll
+    .posts
+      = form_for @message do |f|
+        = f.text_field :message, required: "required", placeholder: "メッセージを入力して下さい" , size: 100, class:"form-text-field"
+        = f.hidden_field :room_id, value: @room.id
+        = f.submit "送信する", class: 'form-submit'
+        
+    .chat
       - if @messages.present?
         - @messages.each do |m|
-          %div{id: "message_#{m.id}"}
-            .chatbox
-              .chat-face1
-                = image_tag "#{m.user.image}", class:"image"
-                .chat-hukidashi
-                = m.user.name
-                %br
-                = m.message
-                %br
-                = m.created_at.strftime("%Y-%m-%d %H:%M")
-                = form_with(model: @message, url: edit_message_path(m.id), remote: true, method: :get) do |f|
-                  = f.hidden_field :room_id, value: @room.id
-                  = f.submit "編集"
-                = form_with(model: @message, url: message_path(m.id), remote: true, method: :delete) do |f|
-                  = f.hidden_field :room_id, value: @room.id
-                  = f.submit "削除"
+          .chat-box
+            .chat-face
+              = image_tag m.user.image.url, class:"user-image"
+            .chat-hukidashi
+              = m.message
+              %br/
+              = m.user.name
+              %br/
+              = m.created_at.strftime("%Y-%m-%d %H:%M")
+              -# = link_to "削除する", message_path(message.id), method: :delete, class: "Message-delete"
