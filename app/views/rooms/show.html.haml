@@ -1,31 +1,38 @@
-.ChatSpace
-  %h4.rooms-title 気になる同士
-  -# - @deals.each do |d|
-  -#   .user-name
-  -#     %strong
-  -#       = image_tag d.user.image.url, class:"user-image"
-  -#       %a.rooms-user-link{:href => "/users/#{d.user.id}"}
-  -#         = d.user.name
-  -#         さん
-  %hr/
+%h4.rooms-title メッセージ
 
-  .chats
-    .posts
-      = form_for @message do |f|
-        = f.text_field :message, required: "required", placeholder: "メッセージを入力して下さい" , size: 100, class:"form-text-field"
-        = f.hidden_field :room_id, value: @room.id
-        = f.submit "送信する", class: 'form-submit'
-        
-    .chat
-      - if @messages.present?
-        - @messages.each do |m|
-          .chat-box
-            .chat-face
-              = image_tag m.user.image.url, class:"user-image"
-            .chat-hukidashi
-              = m.message
-              %br/
-              = m.user.name
-              %br/
-              = m.created_at.strftime("%Y-%m-%d %H:%M")
-              -# = link_to "削除する", message_path(message.id), method: :delete, class: "Message-delete"
+.InputSpace
+  - @deals.each do |d|
+    .user-name
+      = d.user.name
+      さん
+      
+      
+  .posts
+    = form_for @message do |f|
+      = f.text_area :message, required: "required", placeholder: "メッセージを入力して下さい" , size: 100, class:"form-area-field"
+      = f.hidden_field :room_id, value: @room.id
+      = f.submit "送信する", class: 'form-submit'
+    
+  .protocol
+    %h1 注意事項
+    %p.explanation Unityを介さずに行う直接取引、勧誘、宣伝行為を禁止しております。
+    %p これらの行為が確認された場合、アカウント制限等の対応をさせていただきますのでご注意ください。
+
+
+.ChatSpace
+  - if @messages.present?
+    - @messages.each do |m|
+      .chat-box
+        .chat-top
+          .chat-face
+            - if m.user.image?
+              = image_tag m.user.image.url, class:"user-circle"
+            - else
+              = icon('far', 'smile-wink', class: "user-circle" )
+          .chat-name
+            = m.user.name
+          .chat-date
+            = m.created_at.strftime("%Y-%m-%d %H:%M")
+            = link_to "削除", message_path(m.id), method: :delete, class: "Message-delete"
+        .chat-content
+          = m.message

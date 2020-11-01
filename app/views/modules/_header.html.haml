@@ -9,7 +9,7 @@
         -# %li 
         -#   = link_to "Unityとは", "#", method: :get, class: "btn"
         %li 
-          = link_to "メッセージ", "#", method: :get, class: "btn"
+          = link_to "メッセージ", rooms_path, method: :get, class: "btn"
     .header-right
       - if user_signed_in?
         %ul

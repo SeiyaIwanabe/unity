@@ -1,6 +1,13 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @currentRooms = current_user.rooms
+    # @currentRooms.each do | room |
+    #   @last_message = room.messages.last
+    # end
+  end
+
   def create
     @room = Room.create
     @deal1 = Deal.create(room_id: @room.id, user_id: current_user.id)

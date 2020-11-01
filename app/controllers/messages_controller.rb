@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
   def destroy
     @message = Message.find(params[:id])
     @message.destroy
+    render template: "rooms/show"
   end
 
 end

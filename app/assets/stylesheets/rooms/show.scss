@@ -1,12 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+
+h4 {
+  color: lightsteelblue;
+  font-size: 2rem;
+  margin-top: 120px;
+  text-align: center;
+  height: 10px;
+}
+
+.InputSpace {
+  width: 60vw;
+  height: 600px;
+  margin: 40px auto;
+  background-color: lightgray; 
+
+  .user-name {
+    font-weight: bold;
+    display: flex;
+    padding: 0 20px;
+  }
+  
+  .posts {
+
+    .new_message {
+      height: 430px;
+      padding: 20px;
+
+      .form-area-field {
+        width: 100%;
+        height: 300px;
+      }
+      .form-submit {
+        display: block;
+        background-color: #3CCACE;
+        color: #FFFFFF;
+        width: 30%;
+        height: 48px;
+        font-size: 18px;
+        border-radius: 100px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        line-height: 48px;
+        margin: 20px auto;
+      }
+      .form-submit:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .protocol {
+    height: 100px;
+    width: 95%;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      color: red;
+    }
+    p {
+      color: red;
+    }
+  }
+}
+
 .ChatSpace {
-  width: 70vw;
-  height: 100vh;
-  margin: 150px auto;
 
-  .chats {
+  .chat-box {
+    width: 60vw;
+    height: auto;
+    margin: 50px auto;
+    border: 1px solid lightgray;
+    word-wrap: break-word;
 
-    .chat {
-      overflow: scroll
+    .chat-top {
+      display: flex;
+
+      .chat-face {
+
+        .user-circle {
+          border-radius: 50px;
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .chat-name {
+        margin-left: 10px;
+        font-weight: bold;
+      }
+      .chat-date {
+        margin-left: 10px;
+
+        .Message-delete {
+          text-decoration: none;
+        }
+      }
     }
   }
 }

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "events#index"
   resources :users, only: [:show, :edit, :update]
-  resources :rooms, only: [:create, :show]
+  resources :rooms, only: [:index, :create, :show]
   resources :messages, only: [:create, :destroy]
 
 
