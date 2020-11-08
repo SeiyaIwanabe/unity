@@ -3,9 +3,6 @@ class RoomsController < ApplicationController
 
   def index
     @currentRooms = current_user.rooms
-    # @currentRooms.each do | room |
-    #   @last_message = room.messages.last
-    # end
   end
 
   def create
@@ -25,5 +22,5 @@ class RoomsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
-  
+
 end

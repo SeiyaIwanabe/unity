@@ -15,7 +15,7 @@ h4 {
   width: 60vw;
   height: 600px;
   margin: 40px auto;
-  background-color: lightgray; 
+  background-color: #EEEEEE; 
 
   .user-name {
     font-weight: bold;
@@ -84,6 +84,7 @@ h4 {
     margin: 50px auto;
     border: 1px solid lightgray;
     word-wrap: break-word;
+    box-shadow: 2px 2px 4px gray;
 
     .chat-top {
       display: flex;

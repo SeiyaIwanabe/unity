@@ -1,3 +1,14 @@
 .AllRooms
   - @currentRooms.each do | room |
-    = room.messages.last
+    = link_to room_path(room.id), class: "To-room" do
+      .AllRooms__Room
+        .AllRooms__Room--head
+          - if room.messages.last.user.image?
+            = image_tag room.messages.last.user.image.url, class: "user-circle"
+          - else
+            = icon('far', 'smile-wink', class: "user-circle" )
+          = room.messages.last.user.name
+          = room.messages.last.created_at.strftime("%Y-%m-%d %H:%M")
+        .AllRooms__Room--body
+          = room.messages.last.message
+
